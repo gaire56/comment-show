@@ -1,17 +1,54 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import faker from 'faker'; 
+import CommentDetails from './CommentDetails';
+import ApprovalCard from './ApprovalCard';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const App = () => {
+    return (
+        <div className="ui container comments">
+            <ApprovalCard>
+                <CommentDetails 
+                    author="Sita"
+                    timeAgo="Today at 6:00PM" 
+                    comment="Wow this is Amazing!"
+                    avatar={faker.image.avatar()}
+                />
+            </ApprovalCard>
+            <ApprovalCard>       
+                <CommentDetails 
+                    author="Musi" 
+                    timeAgo="Today at 4:00PM" 
+                    comment="Nice Post!" 
+                    avatar={faker.image.avatar()}
+                />
+            </ApprovalCard>
+            <ApprovalCard>          
+                <CommentDetails 
+                    author="Jamuna" 
+                    timeAgo="Today at 3:30Pm" 
+                    comment="Beautiful!" 
+                    avatar={faker.image.avatar()}
+                />
+            </ApprovalCard>
+            <ApprovalCard>           
+                <CommentDetails 
+                    author="Pinki" 
+                    timeAgo="Today at 1:45Pm" 
+                    comment="Wow! Awsome post!"
+                    avatar={faker.image.avatar()} 
+                />
+            </ApprovalCard>
+            <ApprovalCard>          
+                <CommentDetails 
+                    author="Sweeti" 
+                    timeAgo="Yesturday at 2:00PM" 
+                    comment="You are really nice thanks for this post!" 
+                    avatar={faker.image.avatar()}
+                />
+            </ApprovalCard>           
+        </div>
+    );
+};
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDOM.render(<App />, document.querySelector('#root'));
